@@ -11,8 +11,12 @@ class BinaryTree
         if (node == null)
             return node;
 
-        if (node.left != null)
-        {
+        if (node.left != null){
+
+            /**
+             * If there is a left subtree:
+             * Recursively traverse it and connect the nodes.
+             */
             Node left = bintree2listUtil(node.left);
 
             for (; left.right != null; left = left.right);
@@ -24,8 +28,11 @@ class BinaryTree
             node.left = left;
         }
 
-        if (node.right != null)
-        {
+        if (node.right != null){
+
+            /**
+             * Same for the right subtree.
+             */
             Node right = bintree2listUtil(node.right);
 
             for (; right.left != null; right = right.left);
@@ -73,5 +80,6 @@ class BinaryTree
 
         Node head = tree.bintree2list(tree.root);
         tree.printList(head);
+
     }
 }
